@@ -83,9 +83,13 @@ function movieSelected(id) {
 
 function addTofavouites(favouriteMovie) {
   if (favouriteMovie) {
-    favouriteMovies.push(favouriteMovie);
-    updateLocalStorage();
-    alert('Added to Favourites');
+    if (!isfavouritemovie(favouriteMovie.id)) {
+      favouriteMovies.push(favouriteMovie);
+      updateLocalStorage();
+      alert('Added to Favourites');
+    } else {
+      alert('Already added in Favourites');
+    }
   }
 }
 
@@ -100,6 +104,19 @@ function getLocalStrorage() {
   } else {
     return [];
   }
+}
+
+function isfavouritemovie(id) {
+  const movies = getLocalStrorage();
+  if (movies.length == 0) {
+    return false;
+  }
+  for (let i = 0; i < movies.length; i++) {
+    if (id == movies[i].id) {
+      return true;
+    }
+  }
+  return false;
 }
 
 document.addEventListener('click', handleClickEvent);
