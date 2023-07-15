@@ -1,5 +1,6 @@
 const movieOutput = document.getElementById('movie');
 
+// fetch the details of a particular movie.
 async function getMovie() {
   let movieId = sessionStorage.getItem('movieId');
   if (movieId === null) {

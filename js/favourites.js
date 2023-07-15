@@ -1,11 +1,13 @@
 const fmovies = document.getElementById('favouriteMovies');
 
+// get the favourites from the local storage.
 function getFavouriteMovies() {
   const response = localStorage.getItem('favouriteMovies');
   const movies = JSON.parse(response);
   addToDOM(movies);
 }
 
+// add the favouites movie in the database
 function addToDOM(movies) {
   let output = '';
   if (movies != null) {
@@ -30,6 +32,7 @@ function addToDOM(movies) {
   fmovies.innerHTML = output;
 }
 
+// it will remove a movie from the favourite movies
 function removeFavouriteMovie(movieId) {
   const newfavouriteMovies = favouriteMovies.filter((favouriteMovie) => {
     return favouriteMovie.id != movieId;
