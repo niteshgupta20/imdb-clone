@@ -28,9 +28,15 @@ function addToDOM(data) {
       output += `
           <li class="list-group-item">
             <a href="#" class="d-flex justify-content-between align-items-center">
-             <img src="${movie.Poster}" alt="img" class="search-img" />
-             <p class="d-inline text-dark title" data-id="${movie.imdbID}">${movie.Title}</p>
-             <i class="bi bi-heart f-22 text-danger" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Add to favourites" data-img="${movie.Poster}" data-name="${movie.Title}" data-id="${movie.imdbID}"></i>
+             <img src="${
+               movie.Poster === 'N/A' ? 'img/default.jpg' : movie.Poster
+             }" alt="img" class="search-img" />
+             <p class="d-inline text-dark title" data-id="${movie.imdbID}">${
+        movie.Title
+      }</p>
+             <i class="bi bi-heart f-22 text-danger" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Add to favourites" data-img="${
+               movie.Poster
+             }" data-name="${movie.Title}" data-id="${movie.imdbID}"></i>
             </a>
           </li>
       `;

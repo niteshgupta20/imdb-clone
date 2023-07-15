@@ -17,7 +17,9 @@ async function getMovie() {
     let output = `
         <div class="row mb-2">
           <div class="col-md-3">
-            <img src="${movie.Poster}" class="img-fluid" alt="Movie Poster">
+            <img src="${
+              movie.Poster === 'N/A' ? 'img/default.jpg' : movie.Poster
+            }" class="img-fluid" alt="Movie Poster">
           </div>
           <div class="col-md-9">
             <h2>${movie.Title}</h2>
